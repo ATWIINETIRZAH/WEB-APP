@@ -1,0 +1,190 @@
+<!-- 
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="searchbook.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Kampala's Online Bookstore (KOB)</h1>
+        <h2>Welcome to KOB</h2>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchBooks()">Search</button>
+        <div id="bookList"></div>
+    </div>
+
+     <!-- Checkout form  
+    <div id="checkoutForm" style="display:none;">
+        <h2>Checkout</h2>
+        <form id="checkoutForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br><br>
+            <button type="submit">Proceed to Checkout</button>
+        </form>
+    </div>
+
+    <div id="cart">
+        <h1>Shopping Cart</h1>
+        <div id="cartList"></div>
+        <p>Total Price: Ushs<span id="totalPrice">0</span></p>
+        <button onclick="showCheckoutForm()">Buy</button>
+    </div>
+
+    <script src="searchbook.js"></script>
+    <script>
+        function showCheckoutForm() {
+            var checkoutForm = document.getElementById('checkoutForm').cloneNode(true);
+            document.getElementById('cart').appendChild(checkoutForm);
+            checkoutForm.style.display = 'block';
+        }
+    </script>
+</body>
+</html> -->
+
+<!-- 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="searchbook.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Kampala's Online Bookstore (KOB)</h1>
+        <h2>Welcome to KOB</h2>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchBooks()">Search</button>
+        <div id="bookList"></div>
+    </div>
+
+    <!-- Checkout form  
+    <div id="checkoutForm" style="display:none;">
+        <h2>Checkout</h2>
+        <form id="checkoutForm">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br><br>
+            <button type="submit">Proceed to Checkout</button>
+        </form>
+    </div>
+
+    <div id="cart">
+        <h1>Shopping Cart</h1>
+        <div id="cartList"></div>
+        <p>Total Price: Ushs<span id="totalPrice">0</span></p>
+        <button onclick="showCheckoutForm()">Buy</button>
+    </div>
+
+    <script src="searchbook.js"></script>
+    <script>
+        function showCheckoutForm() {
+            var checkoutForm = document.getElementById('checkoutForm');
+            checkoutForm.style.display = 'block';
+            
+            var cartList = document.getElementById('cartList').innerHTML;
+            var totalPrice = document.getElementById('totalPrice').textContent;
+            var name = document.getElementById('name').value;
+
+            var checkoutInfo = document.createElement('div');
+            checkoutInfo.innerHTML = `
+                <h2>Checkout Information</h2>
+                <p>Name: ${name}</p>
+                <p>Books: ${cartList}</p>
+                <p>Total Price: Ushs${totalPrice}</p>
+            `;
+            document.body.appendChild(checkoutInfo);
+        }
+    </script>
+</body>
+</html> -->
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="searchbook.css">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Kampala's Online Bookstore (KOB)</h1>
+        <h2>Welcome to KOB</h2>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <button onclick="searchBooks()">Search</button>
+        <div id="bookList"></div>
+    </div>
+
+    <!-- Checkout form  -->
+    <div id="checkoutForm" style="display:none;">
+        <h2>Checkout</h2>
+        <form id="checkoutForm" onsubmit="showCheckoutInfo(event)">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required><br><br>
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required><br><br>
+            <label for="address">Address:</label>
+            <input type="text" id="address" name="address" required><br><br>
+            <button type="submit">Proceed to Checkout</button>
+        </form>
+    </div>
+
+    <div id="cart">
+        <h1>Shopping Cart</h1>
+        <div id="cartList"></div>
+        <p>Total Price: Ushs<span id="totalPrice">0</span></p>
+        <button onclick="showCheckoutForm()">Buy</button>
+    </div>
+
+    <script src="searchbook.js"></script>
+    <script>
+        function showCheckoutForm() {
+            document.getElementById('checkoutForm').style.display = 'block';
+        }
+
+        function showCheckoutInfo(event) {
+            event.preventDefault();
+
+            var name = document.getElementById('name').value;
+            var email = document.getElementById('email').value;
+            var address = document.getElementById('address').value;
+            var cartList = document.getElementById('cartList').innerHTML;
+            var totalPrice = document.getElementById('totalPrice').textContent;
+
+            var checkoutInfo = document.createElement('div');
+            checkoutInfo.innerHTML = `
+                <h2>Checkout Information</h2>
+                <p>Name: ${name}</p>
+                <p>Email: ${email}</p>
+                <p>Address: ${address}</p>
+                <p>Books: ${cartList}</p>
+                <p>Total Price: Ushs${totalPrice}</p>
+            `;
+            document.body.appendChild(checkoutInfo);
+
+            // Reset cart and total price to zero
+            document.getElementById('cartList').innerHTML = '';
+            document.getElementById('totalPrice').textContent = '0';
+        }
+    </script>
+</body>
+</html>
