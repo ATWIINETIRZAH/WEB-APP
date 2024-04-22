@@ -5,7 +5,7 @@
 
 
 
-body {
+/* body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -19,7 +19,7 @@ body {
     background-color: #fff;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
+} */
 
 h1 {
     text-align: center;
@@ -41,9 +41,31 @@ label {
     margin-bottom: 5px;
 }
 
-input[type="text"],
+/* input[type="text"],
 input[type="number"],
 input[type="submit"] {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+input[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    cursor: pointer;
+}
+
+input[type="submit"]:hover {
+    background-color: #0056b3;
+}  */
+
+input[type="text"],
+input[type="submit"],
+input[type="number"],
+input[type="image"]
+textarea {
     width: 100%;
     padding: 10px;
     margin-bottom: 10px;
@@ -74,24 +96,40 @@ input[type="submit"]:hover {
 
 .view-button:hover {
     background-color: #0056b3;
-} */
+} */ 
 
 
-/* body {
+body { 
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
     background-color: #f4f4f4;
 }
 
-.container {
-    width: 80%;
+/* .container {
+    width: 60%;
     margin: 50px auto;
     padding: 20px;
     background-color: #fff;
     border-radius: 5px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
-/* } */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+} */
+
+.container {
+    width: 60%;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* .container {
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+} */
 
 h1 {
     text-align: center;
@@ -116,7 +154,7 @@ th {
     background-color: #f2f2f2;
 }
 
-/* Add this CSS for the button */
+
 .view-button {
     display: block;
     width: 200px;
@@ -132,3 +170,13 @@ th {
 .view-button:hover {
     background-color: #8f1d7a;
 }
+
+
+ select#genre {
+    width: 103%; 
+    padding: 10px; 
+    border: 1px solid #ddd; 
+    border-radius: 3px; 
+    font-family: inherit;
+  }
+

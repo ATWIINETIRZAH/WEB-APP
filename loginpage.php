@@ -60,7 +60,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username']) && isset($
         if ($result->num_rows > 0) {
             // User exists, set session and redirect
             $_SESSION['user'] = $username;
-            header('Location: searchbook.html'); // Redirect to searchbook page
+            header('Location: searchbook1.php'); // Redirect to searchbook page
             exit();
         } else {
             // User does not exist, redirect to signup page

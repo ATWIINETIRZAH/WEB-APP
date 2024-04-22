@@ -15,8 +15,10 @@ if ($conn->connect_error) {
 if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_POST['username']) && isset($_POST['password'])) {
     $newUsername = $_POST['username'];
     $newPassword = $_POST['password'];
+    $newEmail= $_POST['email'];
+    $newAddress= $_POST['address'];
 
-    $sql = "INSERT INTO users (username, password) VALUES ('$newUsername', '$newPassword')";
+    $sql = "INSERT INTO users (username, password, email, address) VALUES ('$newUsername', '$newPassword','$newEmail','$newAddress')";
     if ($conn->query($sql) === TRUE) {
         echo 'Signup successful! You can now <a href="loginpage.html">login</a>.';
     } else {

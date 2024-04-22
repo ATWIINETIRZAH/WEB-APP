@@ -25,7 +25,8 @@ body {
     }
     
     input[type="text"],
-    input[type="email"]
+    input[type="email"],
+    input[type="date"]
     {
     width: 60%;
     padding: 10px;
@@ -36,7 +37,7 @@ body {
     
     button {
     padding: 10px 20px;
-    background-color: #007bff;
+    background-color: #e45ef0;
     color: #fff;
     border: none;
     border-radius: 3px;
@@ -44,13 +45,16 @@ body {
     }
     
     button:hover {
-    background-color: #0056b3;
+    background-color: #8f1d7a;
     }
     
     #bookList {
     margin-top: 20px;
     }
-    
+/* ------------------------------------------------------------------------------------------- */
+
+
+
 
 
 .book-item {
@@ -83,55 +87,122 @@ body {
     font-weight: bold;
 }
 
-/* -------------- */
-
-/* #recommendationList {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-#recommendationList div {
+/* Style for the recommended books section */
+#recommendations {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #f9f9f9;
     border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: #fff;
 }
 
-@media (max-width: 768px) {
-    #recommendationList {
-        grid-template-columns: repeat(2, 1fr);
-    }
+#recommendations h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-@media (max-width: 480px) {
-    #recommendationList {
-        grid-template-columns: 1fr;
-    }
+#recommendedBooks {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+/* button {
+    padding: 10px 20px; 
+    background-color: #007bff; 
+    color: white; 
+    border: none; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    margin-right: 10px; 
+}
+
+button:hover {
+    background-color: #0056b3; 
 } */
 
-/* #recItems {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-}
-
-#recItems div {
+/* .book-item {
     border: 1px solid #ddd;
     padding: 10px;
-    border-radius: 5px;
     background-color: #fff;
 }
 
-@media (max-width: 768px) {
-    #recItems {
-        grid-template-columns: repeat(2, 1fr);
-    }
+.book-item h2 {
+    font-size: 18px;
+    margin-bottom: 5px;
 }
 
-@media (max-width: 480px) {
-    #recItems {
-        grid-template-columns: 1fr;
-    }
+.book-item p {
+    margin: 0;
+    color: #666;
 }
- */
+
+.book-item button {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+}
+
+.book-item button:hover {
+    background-color: #0056b3;
+} */
+
+
+/* Card styles */
+/* .card {
+    max-width: 300px;
+    height: 700px;
+    margin-bottom: 20px; 
+    border: 1px solid #dee2e6; 
+    border-radius: 5px; 
+    
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    display: flex;
+    row-gap: 12px;
+}
+
+.card-body {
+    padding: 15px;
+    overflow: hidden; 
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.col-md-4 {
+    flex: 0 0 calc(50% - 20px); 
+    margin: 10px;
+} */
+
+.book {
+    width: 200px; 
+    margin: 20px; 
+    text-align: center;
+    margin-left: 125px; 
+    display: inline-block;
+}
+
+.book img {
+    width: 100%;    
+    height: auto; 
+    border-radius: 5px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+.book h3 {
+    margin-top: 10px; 
+    font-size: 1.2em; 
+}
+
+.book p {
+    margin: 5px 0; 
+    font-size: 0.9em; 
+}
+
+
+/* ----------------------------------------------------------------- */
+/*  */

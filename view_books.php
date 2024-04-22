@@ -58,7 +58,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View Books</title>
-  <link rel="stylesheet" href="add.css">
+  <link rel="stylesheet" href="addbook.css">
 </head>
 
 <body>
@@ -72,6 +72,7 @@
           <th>Description</th>
           <th>Genre</th>
           <th>Price</th>
+          <!-- <th>Image</th> -->
         </tr>
       </thead>
       <tbody>
@@ -94,6 +95,8 @@
             echo "<td>" . $row['description'] . "</td>";
             echo "<td>" . $row['genre'] . "</td>";
             echo "<td>Ushs " . $row['price'] . "</td>";
+            // echo "<td><img src='" . $row['book_image'] . "' alt='Book image" . $row['book image'] . "'></td>";
+            // echo "td>"  .$row['book_image'].  "</td>";
             echo "</tr>";
           }
         } else {

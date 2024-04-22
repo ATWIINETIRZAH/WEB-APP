@@ -74,6 +74,8 @@ function searchBooks() {
 
 
 
+
+
 function addToCart(bookId, price, title) {
     // Check if book already exists in cart
     var found = false;
@@ -93,6 +95,22 @@ function addToCart(bookId, price, title) {
     updateCartList(); // Call function to update cart list and total price
 }
 
+// function updateCartList() {
+//     var cartList = document.getElementById('cartList');
+//     cartList.innerHTML = ''; // Clear existing cart items
+
+//     var totalPrice = 0;
+//     cart.forEach(function(cartItem) {
+//         var cartItemElement = document.createElement('div');
+//         cartItemElement.innerHTML = cartItem.title + ' (Qty: ' + cartItem.quantity + ') - Ushs' + (cartItem.quantity * cartItem.price);
+//         cartList.appendChild(cartItemElement);
+
+//         totalPrice += (cartItem.quantity * cartItem.price);
+//     });
+
+//     document.getElementById('totalPrice').textContent = totalPrice;
+// }
+
 function updateCartList() {
     var cartList = document.getElementById('cartList');
     cartList.innerHTML = ''; // Clear existing cart items
@@ -100,15 +118,70 @@ function updateCartList() {
     var totalPrice = 0;
     cart.forEach(function(cartItem) {
         var cartItemElement = document.createElement('div');
-        cartItemElement.innerHTML = cartItem.title + ' (Qty: ' + cartItem.quantity + ') - Ushs' + (cartItem.quantity * cartItem.price);
+
+        var titleElement = document.createElement('span');
+        titleElement.textContent = cartItem.title;
+
+        var quantityElement = document.createElement('span');
+        quantityElement.textContent = ' (Qty: ' + cartItem.quantity + ')';
+
+        var priceElement = document.createElement('span');
+        priceElement.textContent = ' - Ushs' + (cartItem.quantity * cartItem.price);
+
+        cartItemElement.appendChild(titleElement);
+        cartItemElement.appendChild(quantityElement);
+        cartItemElement.appendChild(priceElement);
+
         cartList.appendChild(cartItemElement);
 
         totalPrice += (cartItem.quantity * cartItem.price);
     });
 
-    document.getElementById('totalPrice').textContent = totalPrice;
+    document.getElementById('totalPrice').textContent = 'Total Price: Ushs ' + totalPrice;
 }
 
+function showCheckoutInfo(event) {
+    event.preventDefault();
+
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var address = document.getElementById('address').value;
+    var city = document.getElementById('city').value;
+    var zip = document.getElementById('zip').value;
+    var date = document.getElementById('date').value;
+    var cartList = document.getElementById('cartList').innerHTML;
+    var totalPrice = document.getElementById('totalPrice').textContent;
+
+    // Get book IDs from the cart
+    var bookIds = [];
+    cart.forEach(function(cartItem) {
+        bookIds.push(cartItem.id);
+    });
+    document.getElementById('bookIds').value = JSON.stringify(bookIds);
+
+    // Display checkout information
+    var checkoutInfo = document.createElement('div');
+    checkoutInfo.innerHTML = `
+        <h2>Checkout Information</h2>
+        <p>Name: ${name}</p>
+        <p>Email: ${email}</p>
+        <p>Address: ${address}</p>
+        <p>City: ${city}</p>
+        <p>Zip code: ${zip}</p>
+        <p>Date: ${date}</p>
+        <p>Books: ${cartList}</p>
+        <p>Total Price: Ushs${totalPrice}</p>
+    `;
+    document.getElementById('cart').appendChild(checkoutInfo);
+
+    // Reset cart and total price to zero
+    document.getElementById('cartList').innerHTML = '';
+    document.getElementById('totalPrice').textContent = '0';
+    document.getElementById('checkoutForm').style.display = 'none';
+}
+
+
+// 1111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111111
 
 
 

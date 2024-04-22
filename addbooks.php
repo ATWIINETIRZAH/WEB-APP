@@ -13,7 +13,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Add Book</title>
-  <link rel="stylesheet" href="add.css">
+  <link rel="stylesheet" href="addbook.css">
 </head>
 
 <body>
@@ -21,7 +21,8 @@
     <h1>Add Book</h1>
     <p>Please fill in the form and submit to add a book to the database.</p>
 
-    <form method="POST">
+    <form method="POST" enctype="multipart/form-data">
+
       <label for="title">Title:</label>
       <input type="text" id="title" name="title" required>
 
@@ -45,7 +46,12 @@
 
       <label for="price">Price:</label>
       <input type="number" id="price" name="price" required>
+
+      <label for="image">Image:</label>
+      <input type="file" id="image" name="image" accept="image/*" required>
+
       <input type="submit" name="add" value="Add">
+      
     </form>
 
     <form action="view_books.php">
@@ -71,6 +77,147 @@
 </html>
 
 <?php
+$conn = new mysqli('localhost', 'root', '', 'bookstore');
+
+// if ($conn->connect_error) {
+//   die("Connection failed: " . $conn->connect_error);
+// }
+
+// if (isset($_POST['add'])) {
+//   $title = $_POST['title'];
+//   $author = $_POST['author'];
+//   $description = $_POST['description'];
+//   $genre = $_POST['genre'];
+//   $price = $_POST['price'];
+
+//   $sql = "INSERT INTO books (title, author, description, genre, price) VALUES ('$title', '$author', '$description', '$genre', '$price')";
+
+//   if ($conn->query($sql) === TRUE) {
+//     echo "New book added successfully";
+//   } else {
+//     echo "Error: " . $sql . "<br>" . $conn->error;
+//   }
+// }
+
+// if (isset($_POST['edit'])) {
+//   $edit_id = $_POST['edit_id'];
+//   $title = $_POST['title'];
+//   $author = $_POST['author'];
+//   $description = $_POST['description'];
+//   $genre = $_POST['genre'];
+//   $price = $_POST['price'];
+
+//   $sql = "UPDATE books SET title='$title', author='$author', description='$description', genre='$genre', price='$price' WHERE id=$edit_id";
+
+//   if ($conn->query($sql) === TRUE) {
+//     echo "Book updated successfully";
+//   } else {
+//     echo "Error updating book: " . $conn->error;
+//   }
+// }
+
+// if (isset($_POST['delete'])) {
+//   $delete_id = $_POST['delete_id'];
+
+//   $sql = "DELETE FROM books WHERE id=$delete_id";
+
+//   if ($conn->query($sql) === TRUE) {
+//     echo "Book deleted successfully";
+//   } else {
+//     echo "Error deleting book: " . $conn->error;
+//   }
+// }
+
+// $conn->close();
+?>
+
+
+<?php
+// #Database connection
+// $conn = new mysqli('localhost', 'root', '', 'bookstore');
+
+// if ($conn->connect_error) {
+//   die("Connection failed: " . $conn->connect_error);
+// }
+
+// $title = $_POST['title'];
+// $author = $_POST['author'];
+// $description = $_POST['description'];
+// $genre = $_POST['genre'];
+// $price = $_POST['price'];
+// // $book_image= $post['image'];
+
+// $sql = "INSERT INTO books (title, author, description, genre, price ) VALUES ('$title', '$author', '$description', '$genre','$price')";
+
+// if ($conn->query($sql) === TRUE) {
+//   echo "New book added successfully";
+// } else {
+//   echo "Error: " . $sql . "<br>" . $conn->error;
+// }
+
+// $conn->close();
+ 
+
+
+// if (isset($_POST['add'])) {
+//   $title = $_POST['title'];
+//   $author = $_POST['author'];
+//   $description = $_POST['description'];
+//   $genre = $_POST['genre'];
+//   $price = $_POST['price'];
+
+//   // Check if the file was uploaded without errors
+//   if (isset($_FILES['image']) && $_FILES['image']['error'] === UPLOAD_ERR_OK) {
+//       $image = $_FILES['image']['tmp_name'];
+//       $book_image = file_get_contents($image);
+//       $book_image = $conn->real_escape_string($book_image);
+
+//       $sql = "INSERT INTO books (title, author, description, genre, price, book_image) VALUES ('$title', '$author', '$description', '$genre','$price','$book_image')";
+//       $stmt = $conn->prepare($sql);
+//       $stmt->bind_param("ssssds", $title, $author, $description, $genre, $price, $book_image);
+//       $stmt->execute();
+
+//       if ($stmt->affected_rows > 0) {
+//           echo "New book added successfully";
+//       } else {
+//           echo "Error adding book: " . $stmt->error;
+//       }
+//   } else {
+//       echo "Error uploading image: " . $_FILES['image']['error'];
+//   }
+
+//   $stmt->close(); // Close the statement
+// }
+
+
+// --------------------------------------------
+// if (isset($_POST['add'])) {
+//   $title = $_POST['title'];
+//   $author = $_POST['author'];
+//   $description = $_POST['description'];
+//   $genre = $_POST['genre'];
+//   $price = $_POST['price'];
+
+//   $image = $_FILES['image']['tmp_name'];
+//   $book_image = file_get_contents($image);
+//   $book_image = $conn->real_escape_string($book_image);
+
+//   $sql = "INSERT INTO books (title, author, description, genre, price, book_image) VALUES (?, ?, ?, ?, ?, ?)";
+//   $stmt = $conn->prepare($sql);
+//   $stmt->bind_param("ssssds", $title, $author, $description, $genre, $price, $book_image);
+//   $stmt->execute();
+
+//   if ($stmt->affected_rows > 0) {
+//       echo "New book added successfully";
+//   } else {
+//       echo "Error adding book: " . $stmt->error;
+//   }
+
+//   $stmt->close(); // Close the statement
+// }
+
+
+
 $conn = new mysqli('localhost', 'root', '', 'bookstore');
 
 if ($conn->connect_error) {
@@ -123,33 +270,5 @@ if (isset($_POST['delete'])) {
 }
 
 $conn->close();
+
 ?>
-
-
-<?php
-#Database connection
-$conn = new mysqli('localhost', 'root', '', 'bookstore');
-
-if ($conn->connect_error) {
-  die("Connection failed: " . $conn->connect_error);
-}
-
-$title = $_POST['title'];
-$author = $_POST['author'];
-$description = $_POST['description'];
-$genre = $_POST['genre'];
-$price = $_POST['price'];
-
-$sql = "INSERT INTO books (title, author, description, genre, price ) VALUES ('$title', '$author', '$description', '$genre','$price')";
-
-if ($conn->query($sql) === TRUE) {
-  echo "New book added successfully";
-} else {
-  echo "Error: " . $sql . "<br>" . $conn->error;
-}
-
-$conn->close();
- 
-?>
-
-
